@@ -1,28 +1,22 @@
-# PDF Utility
-
-A simple PHP-based web application for processing PDF files locally.
-
-PDF Utility menyediakan beberapa tools untuk membantu mengolah dokumen PDF dengan mudah tanpa memerlukan database.
-
 ## Features
 
 ### 📎 Merge PDF
 
 Menggabungkan beberapa file PDF menjadi satu dokumen dengan mudah.
 
-![Merge PDF](screenshots/merge-pdf.png)
+<img src="screenshots/merge-pdf.png" alt="Merge PDF" width="700">
 
 ### 📝 Convert PDF to Word
 
 Mengubah file PDF menjadi dokumen Word yang dapat diedit.
 
-![Convert PDF to Word](screenshots/convert-word.png)
+<img src="screenshots/convert-word.png" alt="Convert PDF to Word" width="700">
 
 ### 🗜️ Compress PDF
 
 Mengurangi ukuran file PDF dengan beberapa pilihan tingkat kompresi.
 
-![Compress PDF](screenshots/compress-pdf.png)
+<img src="screenshots/compress-pdf.png" alt="Compress PDF" width="700">
 
 ## Tech Stack
 

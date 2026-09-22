@@ -1,57 +1,30 @@
 <?php
+
 ?>
 
 <!DOCTYPE html>
-
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Merge PDF</title>
 
-
-    <!-- =========================
-         CUSTOM CSS
-    ========================= -->
-
-   <link
-        rel="stylesheet"
-        href="assets/style.css"
-    >
-
-    <!-- =========================
-         BOOTSTRAP CSS
-    ========================= -->
+    <link rel="stylesheet" href="assets/style.css">
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
-
 </head>
-
 
 <body>
 
-
-    <!-- =========================
-        NAVBAR
-    ========================= -->
     <nav class="navbar navbar-custom">
         <div class="container">
 
-            <!-- BRAND -->
-            <a
-                class="navbar-brand"
-                href="index.php"
-            >
+            <a class="navbar-brand" href="index.php">
                 <div class="brand-icon">
                     📄
                 </div>
@@ -64,10 +37,7 @@
                 </div>
             </a>
 
-
-            <!-- MENU -->
             <div class="navbar-menu">
-
                 <a
                     href="index.php"
                     class="navbar-menu-link active"
@@ -88,28 +58,15 @@
                 >
                     Compress PDF
                 </a>
-
             </div>
 
         </div>
     </nav>
 
-
-    <!-- =========================
-         MAIN
-    ========================= -->
-
     <main class="main-wrapper">
-
         <div class="container">
 
-
-            <!-- =========================
-                 PAGE HEADER
-            ========================= -->
-
             <div class="page-header">
-
                 <div class="page-badge">
                     ⚡ Simple &nbsp;•&nbsp; Fast &nbsp;•&nbsp; Free
                 </div>
@@ -121,24 +78,12 @@
                 <p>
                     Gabungkan beberapa file PDF menjadi satu dokumen dengan mudah.
                 </p>
-
             </div>
 
-
-            <!-- =========================
-                 MERGE CARD
-            ========================= -->
-
             <div class="row justify-content-center">
-
                 <div class="col-lg-8 col-xl-7">
 
                     <div class="merge-card">
-
-
-                        <!-- =========================
-                             FORM
-                        ========================= -->
 
                         <form
                             action="merge.php"
@@ -147,34 +92,22 @@
                             id="mergeForm"
                         >
 
-
-                            <!-- =========================
-                                 UPLOAD AREA
-                            ========================= -->
-
                             <div class="upload-box">
-
                                 <div class="upload-icon-wrapper">
-
                                     <div class="upload-icon">
                                         📄
                                     </div>
-
                                 </div>
-
 
                                 <h4 class="fw-bold">
                                     Pilih File PDF
                                 </h4>
 
-
                                 <p>
                                     Pilih satu atau beberapa file PDF untuk digabungkan
                                 </p>
 
-
                                 <div class="file-input-wrapper">
-
                                     <input
                                         type="file"
                                         id="pdf_files"
@@ -182,22 +115,14 @@
                                         accept=".pdf,application/pdf"
                                         multiple
                                     >
-
                                 </div>
-
                             </div>
-
-
-                            <!-- =========================
-                                 ADD FILE
-                            ========================= -->
 
                             <div
                                 id="addFileWrapper"
                                 class="add-file-wrapper"
                                 style="display: none;"
                             >
-
                                 <button
                                     type="button"
                                     class="add-file-button"
@@ -205,26 +130,14 @@
                                 >
                                     + Tambah File
                                 </button>
-
                             </div>
-
-
-                            <!-- =========================
-                                 SELECTED FILES
-                            ========================= -->
 
                             <div
                                 id="selectedFiles"
                                 class="selected-files"
                             ></div>
 
-
-                            <!-- =========================
-                                 MERGE BUTTON
-                            ========================= -->
-
                             <div class="merge-button-wrapper">
-
                                 <button
                                     type="submit"
                                     class="merge-button"
@@ -232,18 +145,11 @@
                                 >
                                     🔗 &nbsp; Merge PDF
                                 </button>
-
                             </div>
-
 
                         </form>
 
                     </div>
-
-
-                    <!-- =========================
-                         FOOTER
-                    ========================= -->
 
                     <div class="footer-text">
                         Merge PDF Tool
@@ -253,31 +159,17 @@
                         Developed by <strong>Raplh</strong>
                     </div>
 
-
                 </div>
-
             </div>
 
         </div>
-
     </main>
-
-
-    <!-- =========================
-         BOOTSTRAP JS
-    ========================= -->
 
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     ></script>
 
-
-    <!-- =========================
-         CUSTOM JS
-    ========================= -->
-
     <script src="assets/app.js"></script>
-
 
 </body>
 

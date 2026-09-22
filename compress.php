@@ -1,9 +1,6 @@
 <?php
 
-// ==============================
-// CEK UPLOAD
-// ==============================
-
+// Validasi upload
 if (!isset($_FILES['pdf_file'])) {
     die('File PDF belum dipilih.');
 }
@@ -14,11 +11,7 @@ if ($_FILES['pdf_file']['error'] !== UPLOAD_ERR_OK) {
 
 $file = $_FILES['pdf_file'];
 
-
-// ==============================
-// VALIDASI EXTENSION
-// ==============================
-
+// Validasi extension
 $extension = strtolower(
     pathinfo($file['name'], PATHINFO_EXTENSION)
 );
@@ -27,11 +20,7 @@ if ($extension !== 'pdf') {
     die('File yang diperbolehkan hanya PDF.');
 }
 
-
-// ==============================
-// VALIDASI MIME
-// ==============================
-
+// Validasi MIME
 $finfo = finfo_open(FILEINFO_MIME_TYPE);
 
 $mimeType = finfo_file(
@@ -45,11 +34,7 @@ if ($mimeType !== 'application/pdf') {
     die('File yang diupload bukan PDF yang valid.');
 }
 
-
-// ==============================
-// LEVEL KOMPRESI
-// ==============================
-
+// Tentukan level kompresi
 $level = $_POST['compression'] ?? 'medium';
 
 $settings = [
@@ -60,15 +45,8 @@ $settings = [
 
 $pdfSetting = $settings[$level] ?? '/ebook';
 
-
-// ==============================
-// CARI GHOSTSCRIPT
-// ==============================
-
+// Cari Ghostscript
 $ghostscript = null;
-
-
-// Coba dari PATH Windows
 $pathResult = [];
 
 exec(
@@ -81,10 +59,8 @@ if ($pathCode === 0 && !empty($pathResult)) {
     $ghostscript = trim($pathResult[0]);
 }
 
-
 // Coba lokasi umum Ghostscript
 if ($ghostscript === null || !file_exists($ghostscript)) {
-
     $folders = glob(
         'C:/Program Files/gs/*/bin/gswin64c.exe'
     );
@@ -94,10 +70,8 @@ if ($ghostscript === null || !file_exists($ghostscript)) {
     }
 }
 
-
 // Coba Program Files (x86)
 if ($ghostscript === null || !file_exists($ghostscript)) {
-
     $folders = glob(
         'C:/Program Files (x86)/gs/*/bin/gswin32c.exe'
     );
@@ -107,21 +81,14 @@ if ($ghostscript === null || !file_exists($ghostscript)) {
     }
 }
 
-
-// Kalau tidak ditemukan
 if ($ghostscript === null || !file_exists($ghostscript)) {
-
     die(
         'Ghostscript tidak ditemukan oleh PHP.<br><br>' .
         'Pastikan Ghostscript sudah terinstall.'
     );
 }
 
-
-// ==============================
-// FILE TEMPORARY
-// ==============================
-
+// Buat file temporary
 $inputFile = tempnam(
     sys_get_temp_dir(),
     'pdf_input_'
@@ -135,27 +102,18 @@ $outputFile = tempnam(
 $inputFile .= '.pdf';
 $outputFile .= '.pdf';
 
-
-// ==============================
-// PINDAHKAN FILE UPLOAD
-// ==============================
-
+// Pindahkan file upload
 if (!move_uploaded_file(
     $file['tmp_name'],
     $inputFile
 )) {
-
     @unlink($inputFile);
     @unlink($outputFile);
 
     die('Gagal menyimpan file PDF sementara.');
 }
 
-
-// ==============================
-// COMMAND GHOSTSCRIPT
-// ==============================
-
+// Susun command Ghostscript
 $command =
     '"' . $ghostscript . '"' .
     ' -sDEVICE=pdfwrite' .
@@ -167,13 +125,8 @@ $command =
     ' -sOutputFile=' . escapeshellarg($outputFile) .
     ' ' . escapeshellarg($inputFile);
 
-
-// ==============================
-// JALANKAN
-// ==============================
-
+// Jalankan Ghostscript
 $output = [];
-
 $returnCode = 0;
 
 exec(
@@ -182,24 +135,17 @@ exec(
     $returnCode
 );
 
-
-// ==============================
-// CEK HASIL
-// ==============================
-
+// Cek hasil kompresi
 if (
     $returnCode !== 0 ||
     !file_exists($outputFile) ||
     filesize($outputFile) === 0
 ) {
-
     @unlink($inputFile);
     @unlink($outputFile);
 
     echo '<h3>Gagal melakukan kompresi PDF.</h3>';
-
     echo '<p>Ghostscript berhasil ditemukan, tetapi gagal memproses PDF.</p>';
-
     echo '<strong>Detail:</strong>';
 
     echo '<pre>';
@@ -211,11 +157,7 @@ if (
     exit;
 }
 
-
-// ==============================
-// NAMA FILE DOWNLOAD
-// ==============================
-
+// Tentukan nama file download
 $originalName = pathinfo(
     $file['name'],
     PATHINFO_FILENAME
@@ -223,11 +165,7 @@ $originalName = pathinfo(
 
 $downloadName = $originalName . '_compressed.pdf';
 
-
-// ==============================
-// DOWNLOAD
-// ==============================
-
+// Download file
 header('Content-Type: application/pdf');
 
 header(
@@ -242,20 +180,12 @@ header(
 );
 
 header('Cache-Control: no-cache, no-store, must-revalidate');
-
 header('Pragma: no-cache');
-
 header('Expires: 0');
 
-
-// Kirim file
 readfile($outputFile);
 
-
-// ==============================
-// HAPUS TEMPORARY
-// ==============================
-
+// Hapus file temporary
 @unlink($inputFile);
 @unlink($outputFile);
 

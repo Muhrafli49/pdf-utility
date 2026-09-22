@@ -3,11 +3,9 @@
 ?>
 
 <!DOCTYPE html>
-
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -17,57 +15,40 @@
 
     <title>Compress PDF</title>
 
-
     <!-- Bootstrap -->
-
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
-
     <!-- Custom CSS -->
-
     <link
         rel="stylesheet"
         href="assets/style.css"
     >
-
 </head>
-
 
 <body>
 
-
-    <!-- =========================
-         NAVBAR
-    ========================= -->
-
+    <!-- Navbar -->
     <nav class="navbar navbar-custom">
-
         <div class="container">
 
             <a
                 class="navbar-brand"
                 href="index.php"
             >
-
                 <div class="brand-icon">
                     📄
                 </div>
 
                 <div class="brand-text">
-
                     Compress PDF
-
                     <small>
                         PDF Utility Tool
                     </small>
-
                 </div>
-
             </a>
-
 
             <div class="navbar-menu">
 
@@ -78,14 +59,12 @@
                     Merge PDF
                 </a>
 
-
                 <a
                     href="convert-word.php"
                     class="navbar-menu-link"
                 >
                     Convert to Word
                 </a>
-
 
                 <a
                     href="compress-pdf.php"
@@ -95,28 +74,17 @@
                 </a>
 
             </div>
-
         </div>
-
     </nav>
 
-
-
-    <!-- =========================
-         MAIN
-    ========================= -->
-
+    <!-- Main -->
     <main class="container py-5">
 
         <div class="row justify-content-center">
 
             <div class="col-lg-8 col-xl-7">
 
-
-                <!-- =========================
-                     HEADER
-                ========================= -->
-
+                <!-- Header -->
                 <div class="text-center mb-4">
 
                     <div class="fs-1 mb-2">
@@ -133,22 +101,12 @@
 
                 </div>
 
-
-
-                <!-- =========================
-                     CARD
-                ========================= -->
-
+                <!-- Card -->
                 <div class="compress-card">
-
-
-                    <!-- LIS BIRU -->
 
                     <div class="compress-card-top"></div>
 
-
                     <div class="compress-card-body">
-
 
                         <form
                             action="compress.php"
@@ -157,11 +115,7 @@
                             id="compressForm"
                         >
 
-
-                            <!-- =========================
-                                 UPLOAD
-                            ========================= -->
-
+                            <!-- Upload -->
                             <div class="mb-4">
 
                                 <label
@@ -170,7 +124,6 @@
                                 >
                                     Pilih File PDF
                                 </label>
-
 
                                 <input
                                     type="file"
@@ -181,33 +134,22 @@
                                     required
                                 >
 
-
                                 <div class="form-text">
                                     Maksimal 1 file PDF.
                                 </div>
 
                             </div>
 
-
-
-                            <!-- =========================
-                                 COMPRESSION LEVEL
-                            ========================= -->
-
+                            <!-- Compression Level -->
                             <div class="mb-4">
 
                                 <label class="form-label fw-semibold">
-
                                     Tingkat Kompresi
-
                                 </label>
-
 
                                 <div class="row g-3">
 
-
-                                    <!-- RENDAH -->
-
+                                    <!-- Rendah -->
                                     <div class="col-md-4">
 
                                         <input
@@ -218,12 +160,10 @@
                                             value="low"
                                         >
 
-
                                         <label
                                             class="btn btn-outline-primary w-100 text-start p-3 compression-option"
                                             for="compressionLow"
                                         >
-
                                             <div class="fw-bold">
                                                 Rendah
                                             </div>
@@ -231,15 +171,11 @@
                                             <small class="text-muted">
                                                 Kualitas lebih baik
                                             </small>
-
                                         </label>
 
                                     </div>
 
-
-
-                                    <!-- SEDANG -->
-
+                                    <!-- Sedang -->
                                     <div class="col-md-4">
 
                                         <input
@@ -251,12 +187,10 @@
                                             checked
                                         >
 
-
                                         <label
                                             class="btn btn-outline-primary w-100 text-start p-3 compression-option"
                                             for="compressionMedium"
                                         >
-
                                             <div class="fw-bold">
                                                 Sedang
                                             </div>
@@ -264,15 +198,11 @@
                                             <small class="text-muted">
                                                 Seimbang
                                             </small>
-
                                         </label>
 
                                     </div>
 
-
-
-                                    <!-- TINGGI -->
-
+                                    <!-- Tinggi -->
                                     <div class="col-md-4">
 
                                         <input
@@ -283,12 +213,10 @@
                                             value="high"
                                         >
 
-
                                         <label
                                             class="btn btn-outline-primary w-100 text-start p-3 compression-option"
                                             for="compressionHigh"
                                         >
-
                                             <div class="fw-bold">
                                                 Tinggi
                                             </div>
@@ -296,21 +224,14 @@
                                             <small class="text-muted">
                                                 Ukuran lebih kecil
                                             </small>
-
                                         </label>
 
                                     </div>
 
                                 </div>
-
                             </div>
 
-
-
-                            <!-- =========================
-                                 INFO
-                            ========================= -->
-
+                            <!-- Info -->
                             <div class="alert alert-light border mb-4">
 
                                 <div class="d-flex gap-2">
@@ -319,34 +240,24 @@
                                         💡
                                     </div>
 
-
                                     <div>
-
                                         <strong>
                                             Tips:
                                         </strong>
 
                                         Pilih tingkat
-
                                         <strong>
                                             Sedang
                                         </strong>
-
                                         untuk hasil yang seimbang antara ukuran file
                                         dan kualitas dokumen.
-
                                     </div>
 
                                 </div>
 
                             </div>
 
-
-
-                            <!-- =========================
-                                 SUBMIT
-                            ========================= -->
-
+                            <!-- Submit -->
                             <div class="d-grid">
 
                                 <button
@@ -354,45 +265,26 @@
                                     class="btn btn-primary btn-lg"
                                     id="compressButton"
                                 >
-
                                     🗜️ &nbsp; Compress PDF
-
                                 </button>
 
                             </div>
 
-
                         </form>
 
                     </div>
-
                 </div>
 
-
-
-                <!-- =========================
-                     FOOTER INFO
-                ========================= -->
-
+                <!-- Footer Info -->
                 <div class="text-center text-muted small mt-4">
-
                     File diproses secara lokal menggunakan Ghostscript.
-
                 </div>
-
 
             </div>
-
         </div>
-
     </main>
 
-
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
+    <!-- Footer -->
     <footer class="text-center text-muted py-4">
 
         <small>
@@ -401,22 +293,11 @@
 
     </footer>
 
-
-
     <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
-
-
-
-    <!-- =========================
-         SCRIPT
-    ========================= -->
-
+    <!-- Script -->
     <script>
-
         document
             .getElementById('compressForm')
             .addEventListener('submit', function () {
@@ -428,11 +309,8 @@
 
                 button.innerHTML =
                     '⏳ &nbsp; Memproses PDF...';
-
             });
-
     </script>
-
 
 </body>
 
